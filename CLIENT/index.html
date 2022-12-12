@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Jogo X</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top" onload="consulta()">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none">Jogo X</span>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                    src="assets/img/profile.jpg" alt="..." /></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Início</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Jogo</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Jogador</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Equipe</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Cidade</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Técnico</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <!-- About-->
+        <section class="resume-section" id="about">
+            <div class="resume-section-content">
+                <h1 class="mb-0">
+                    Faça seu jogo X
+                    <span class="text-info">Aqui</span>
+                </h1>
+                <div class="subheading mb-2">
+                    R. Irênio Greco, 4580 - Vila Imperador, Franca - SP, 14405-191
+                    <a class="text-info" href="mailto:jogo@email.com">jogo@email.com</a>
+                </div>
+                <p class="lead mb-3">O jogo X e para você que gosta de jogar jogos X. </p>
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Placar X</h3>
+                    <div class="container">
+                        <table class="table">
+                            <thead>
+                                <th>Posição</th>
+                                <th>Equipe</th>
+                                <th>Pontos Totais</th>
+                            </thead>
+                            <tbody id="conteudoTabela">
+                                <!--preenchido automaticamente-->
+                            </tbody>
+                        </table>
+                        <span id="zero"></span>
+                    </div>
+                </div>
+
+                <!-- <div class="social-icons">
+                    <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
+                    <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
+                </div> -->
+            </div>
+        </section>
+        <hr class="m-0" />
+        <!-- Experience-->
+        <section class="resume-section" id="experience">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Jogo</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Jogos Cadastrados</h3>
+                        <div class="subheading mb-3">Visualização dos Jogos</div>
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <th>Código Jogo</th>
+                                    <th>Equipe Casa</th>
+                                    <th>Equipe Visitante</th>
+                                    <th>Pontos Casa</th>
+                                    <th>Pontos Visitante</th>
+                                    <th>Data do Jogo</th>
+                                    <th></th>
+                                    <th></th>
+                                </thead>
+                                <tbody id="conteudoJogoTabela">
+                                    <!--preenchido automaticamente-->
+                                </tbody>
+                            </table>
+                            <span id="zeroJogo"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="CadastrarJogo">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Cadastro e/ou pontos do Jogo</h3>
+                        <div class="subheading mb-3">Insira os dados do jogo</div>
+                        <section id="cadastro">
+                            <div class="container col-12">
+                                <form class="">
+                                    <div class="row">
+                                        <input type="number" id="idJogo" hidden />
+                                        <div class="mb-3 col-4">
+                                            <label for="" class="required">Código Jogo</label>
+                                            <input class="form-control" type="text" type="number" id="codigoJogo"
+                                                readonly />
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="equipeCasa" class="required"> Equipe Casa<span>*</span> </label>
+                                            <input class="form-control" type="text" name="equipeCasa" id="equipeCasa"
+                                                required />
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="equipeVisitante" class="required">Equipe Visitante<span>*</span>
+                                            </label>
+                                            <input class="form-control" type="text" name="equipeVisitante"
+                                                id="equipeVisitante" required />
+                                        </div>
+                                        <div class="mb-3  col-4">
+                                            <label for="combustivel"> Pontos Casa</label>
+                                            <input class="form-control" type="text" name="pontosCasa" id="pontosCasa">
+                                        </div>
+                                        <div class="mb-3  col-4">
+                                            <label for="potencia"> Pontos Visitante </label>
+                                            <input class="form-control" type="text" name="pontosVisitante"
+                                                id="pontosVisitante">
+                                        </div>
+                                        <div class="mb-3  col-4">
+                                            <label for="dataJogo"> Data do Jogo </label>
+                                            <input class="form-control" type="text" name="dataJogo" id="dataJogo"
+                                                readonly>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" onclick="cadastrarJogo()" class=" btn btn-info mr-1"> Salvar
+                                        Jogo</button>
+                                    <button type="button" onclick="limparJogo()" class=" btn btn-info mr-1"> Limpar
+                                        Jogo</button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+        </section>
+        <hr class="m-0" />
+        <!-- Education-->
+        <section class="resume-section" id="education">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Jogador</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Jogador Cadastrados</h3>
+                        <div class="subheading mb-3">Visualização dos Jogador</div>
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <th>Código Jogador</th>
+                                    <th>Nome do Jogador</th>
+                                    <th>Equipe</th>
+                                    <th></th>
+                                    <th></th>
+                                </thead>
+                                <tbody id="conteudoJogadorTabela">
+                                    <!--preenchido automaticamente-->
+                                </tbody>
+                            </table>
+                            <span id="zeroJogador"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="CadastrarJogo">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Cadastro e/ou atualize o Jogador</h3>
+                        <div class="subheading mb-3">Insira os dados do jogador</div>
+                        <section id="cadastro">
+                            <div class="container col-12">
+                                <form class="">
+                                    <div class="row">
+                                        <input type="number" id="idJogador" hidden />
+                                        <div class="mb-3 col-4">
+                                            <label for="" class="required">Código Jogodor</label>
+                                            <input class="form-control" type="text" type="number" id="codigoJogador"
+                                                readonly />
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="equipeCasa" class="required">Nome<span>*</span> </label>
+                                            <input class="form-control" type="text" name="nomeJogador" id="nomeJogador"
+                                                required />
+                                        </div>
+
+                                        <div class="mb-3  col-4">
+                                            <label for="equipeJogador"> Equipe </label>
+                                            <input class="form-control" type="text" name="equipeJogador"
+                                                id="equipeJogador">
+                                        </div>
+                                    </div>
+
+                                    <button type="button" onclick="cadastrarJogador()" class=" btn btn-info mr-1">
+                                        Salvar
+                                        Jogador</button>
+                                    <button type="button" onclick="limparJogador()" class=" btn btn-info mr-1"> Limpar
+                                        Jogador</button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0" />
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Equipe</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Equipes Cadastradas</h3>
+                        <div class="subheading mb-3">Visualização das Equipes</div>
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <th>Código Equipe</th>
+                                    <th></th>
+                                    <th></th>
+                                </thead>
+                                <tbody id="conteudoEquipeTabela">
+                                    <!--preenchido automaticamente-->
+                                </tbody>
+                            </table>
+                            <span id="zeroEquipe"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="CadastrarJogo">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Cadastro e/ou atualize equipe</h3>
+                        <div class="subheading mb-3">Insira os dados da equipe</div>
+                        <section id="cadastro">
+                            <div class="container col-12">
+                                <form class="">
+                                    <div class="row">
+                                        <input type="number" id="idEquipe" hidden />
+                                        <div class="mb-3 col-4">
+                                            <label for="" class="required">Código Equipe<span>*</span></label>
+                                            <input class="form-control" type="text" type="number" id="codigoEquipe"/>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" onclick="cadastrarEquipe()" class=" btn btn-info mr-1"> Salvar
+                                        Equipe</button>
+                                    <button type="button" onclick="limparEquipe()" class=" btn btn-info mr-1"> Limpar
+                                        Equipe</button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+        </section>
+        <hr class="m-0" />
+        <!-- Interests-->
+        <section class="resume-section" id="interests">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Cidade</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Cidades Cadastradas</h3>
+                        <div class="subheading mb-3">Visualização de Cidades</div>
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <th>Código Cidade</th>
+                                    <th>Nome do Cidade</th>
+                                    <th>Equipe</th>
+                                    <th></th>
+                                    <th></th>
+                                </thead>
+                                <tbody id="conteudoCidadeTabela">
+                                    <!--preenchido automaticamente-->
+                                </tbody>
+                            </table>
+                            <span id="zeroCidade"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="CadastrarJogo">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Cadastro e/ou atualize a cidade</h3>
+                        <div class="subheading mb-3">Insira os dados da cidade</div>
+                        <section id="cadastro">
+                            <div class="container col-12">
+                                <form class="">
+                                    <div class="row">
+                                        <input type="number" id="idCidade" hidden />
+                                        <div class="mb-3 col-4">
+                                            <label for="" class="required">Código Cidade</label>
+                                            <input class="form-control" type="text" type="number" id="codigoCidade"
+                                                readonly />
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="equipeCasa" class="required">Nome da Cidade<span>*</span>
+                                            </label>
+                                            <input class="form-control" type="text" name="nomeCidade" id="nomeCidade"
+                                                required />
+                                        </div>
+
+                                        <div class="mb-3  col-4">
+                                            <label for="equipeCidade"> Equipe </label>
+                                            <input class="form-control" type="text" name="equipeCidade"
+                                                id="equipeCidade" >
+                                        </div>
+                                    </div>
+
+                                    <button type="button" onclick="cadastrarCidade()" class=" btn btn-info mr-1"> Salvar
+                                        Cidade</button>
+                                    <button type="button" onclick="limparCidade()" class=" btn btn-info mr-1"> Limpar
+                                        Cidade</button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+        </section>
+        <hr class="m-0" />
+        <!-- Awards-->
+        <section class="resume-section" id="awards">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Técnico</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Técnicos Cadastrados</h3>
+                        <div class="subheading mb-3">Visualização dos Técnicos</div>
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <th>Código Técnico</th>
+                                    <th>Nome</th>
+                                    <th>Função</th>
+                                    <th>Equipe</th>
+                                    <th></th>
+                                    <th></th>
+                                </thead>
+                                <tbody id="conteudoTecnicoTabela">
+                                    <!--preenchido automaticamente-->
+                                </tbody>
+                            </table>
+                            <span id="zeroTecnico"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="CadastrarTecnico">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Cadastro e/ou atualize Técnico</h3>
+                        <div class="subheading mb-3">Insira os dados do Técnico</div>
+                        <section id="cadastro">
+                            <div class="container col-12">
+                                <form class="">
+                                    <div class="row">
+                                        <input type="number" id="idTecnico" hidden />
+                                        <div class="mb-3 col-4">
+                                            <label for="" class="required">Código Técnico</label>
+                                            <input class="form-control" type="text" type="number" id="codigoTecnico"
+                                                readonly />
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="nomeTecnico" class="required"> Nome<span>*</span> </label>
+                                            <input class="form-control" type="text" name="nomeTecnico" id="nomeTecnico"
+                                                required />
+                                        </div>
+                                        <div class="mb-3 col-4">
+                                            <label for="funcaoTecnico" class="required">Função<span>*</span>
+                                            </label>
+                                            <input class="form-control" type="text" name="funcaoTecnico"
+                                                id="funcaoTecnico" required />
+                                        </div>
+                                        <div class="mb-3  col-4">
+                                            <label for="equipeTecnico">Equipe </label>
+                                            <input class="form-control" type="text" name="equipeTecnico" id="equipeTecnico"
+                                                >
+                                        </div>
+                                    </div>
+
+                                    <button type="button" onclick="cadastrarTecnico()" class=" btn btn-info mr-1">
+                                        Salvar
+                                        Técnico</button>
+                                    <button type="button" onclick="limparTecnico()" class=" btn btn-info mr-1"> Limpar
+                                        Técnico</button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+    <!-- Core theme JS-->
+    <script src="js/funcoes.js"></script>
+</body>
+
+</html>
